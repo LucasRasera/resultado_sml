@@ -110,7 +110,7 @@ if uploaded_file is not None:
     
     st.subheader('CPC por Filtro e Hora', divider=True)
     tabulacoes['HORA'] = tabulacoes['HORA'].str.split(':').str[0]
-    tabela_pivot = tabulacoes.pivot_table(index="NOME DO FILTRO", columns="HORA", aggfunc='size', fill_value=0)
+    tabela_pivot = tabulacoes.pivot_table(index="NOME DO FILTRO", columns="HORA", values="CPC REAL", aggfunc='sum', fill_value=0)
     tabela_pivot = tabela_pivot.reset_index()
     st.dataframe(tabela_pivot)
 
